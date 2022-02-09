@@ -1,0 +1,1 @@
+var isEvenOddTree=function(root){let q=[root],head=0,level=0;while(head<q.length){let end=q.length,prev=level%2?Infinity:-Infinity;while(head<end){let node=q[head++],x=node.val;if(level%2 ? x%2!==0||x>=prev : x%2!==1||x<=prev)return false;prev=x;if(node.left)q.push(node.left);if(node.right)q.push(node.right)}level++;}return true;};
