@@ -1,0 +1,1 @@
+var maxDepth=function(s){let depth=0,best=0;for(const c of s){if(c==="(")best=Math.max(best,++depth);else if(c===")")depth--;}return best;};
