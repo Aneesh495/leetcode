@@ -1,0 +1,1 @@
+var checkPalindromeFormation=function(a,b){function pal(s,l,r){while(l<r)if(s[l++]!==s[r--])return false;return true}function check(x,y){let l=0,r=x.length-1;while(l<r&&x[l]===y[r]){l++;r--}return pal(x,l,r)||pal(y,l,r)}return check(a,b)||check(b,a);};
