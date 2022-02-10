@@ -1,0 +1,1 @@
+var maximalNetworkRank=function(n,roads){let d=Array(n).fill(0),g=Array.from({length:n},()=>new Uint8Array(n)),ans=0;for(const [a,b] of roads){d[a]++;d[b]++;g[a][b]=g[b][a]=1;}for(let i=0;i<n;i++)for(let j=i+1;j<n;j++)ans=Math.max(ans,d[i]+d[j]-g[i][j]);return ans;};
