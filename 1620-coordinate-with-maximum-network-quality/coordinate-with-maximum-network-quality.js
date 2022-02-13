@@ -1,0 +1,1 @@
+var bestCoordinate=function(towers,radius){let best=-1,ans=[0,0];for(let x=0;x<=50;x++)for(let y=0;y<=50;y++){let sum=0;for(const [a,b,q] of towers){let d=Math.hypot(x-a,y-b);if(d<=radius)sum+=Math.floor(q/(1+d));}if(sum>best){best=sum;ans=[x,y]}}return ans;};
