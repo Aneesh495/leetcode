@@ -1,0 +1,1 @@
+var findLexSmallestString=function(s,a,b){let seen=new Set([s]),q=[s],best=s;for(let i=0;i<q.length;i++){let cur=q[i];if(cur<best)best=cur;let x=cur.split("");for(let j=1;j<x.length;j+=2)x[j]=String((+x[j]+a)%10);let add=x.join(""),rot=cur.slice(-b)+cur.slice(0,-b);for(const t of [add,rot])if(!seen.has(t)){seen.add(t);q.push(t)}}return best;};
