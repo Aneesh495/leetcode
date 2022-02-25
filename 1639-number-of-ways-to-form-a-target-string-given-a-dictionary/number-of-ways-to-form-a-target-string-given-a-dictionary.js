@@ -1,0 +1,1 @@
+var numWays=function(words,target){const M=1000000007n,L=words[0].length;let dp=Array(target.length+1).fill(0n);dp[0]=1n;for(let j=0;j<L;j++){let f=new Int32Array(26);for(const w of words)f[w.charCodeAt(j)-97]++;for(let i=Math.min(j,target.length-1);i>=0;i--)dp[i+1]=(dp[i+1]+dp[i]*BigInt(f[target.charCodeAt(i)-97]))%M;}return Number(dp[target.length]);};
