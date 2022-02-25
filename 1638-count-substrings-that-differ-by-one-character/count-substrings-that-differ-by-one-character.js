@@ -1,0 +1,1 @@
+var countSubstrings=function(s,t){let n=t.length,eq=new Int32Array(n+1),one=new Int32Array(n+1),ans=0;for(let i=1;i<=s.length;i++){let ne=new Int32Array(n+1),no=new Int32Array(n+1);for(let j=1;j<=n;j++){if(s[i-1]===t[j-1]){ne[j]=eq[j-1]+1;no[j]=one[j-1]}else no[j]=eq[j-1]+1;ans+=no[j]}eq=ne;one=no}return ans;};
