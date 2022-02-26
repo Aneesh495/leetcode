@@ -1,0 +1,1 @@
+var canFormArray=function(arr,pieces){let m=new Map(pieces.map(p=>[p[0],p]));for(let i=0;i<arr.length;){let p=m.get(arr[i]);if(!p)return false;for(const x of p)if(arr[i++]!==x)return false;}return true;};
