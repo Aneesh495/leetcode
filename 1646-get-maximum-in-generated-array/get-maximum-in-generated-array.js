@@ -1,0 +1,1 @@
+var getMaximumGenerated=function(n){if(!n)return 0;let a=[0,1],best=1;for(let i=2;i<=n;i++){a[i]=a[Math.floor(i/2)]+(i%2?a[Math.floor(i/2)+1]:0);best=Math.max(best,a[i]);}return best;};
