@@ -1,0 +1,2 @@
+var OrderedStream = function(n) { this.a=Array(n+1); this.p=1; };
+OrderedStream.prototype.insert = function(idKey,value) { this.a[idKey]=value; const r=[]; while(this.a[this.p]!==undefined) r.push(this.a[this.p++]); return r; };
