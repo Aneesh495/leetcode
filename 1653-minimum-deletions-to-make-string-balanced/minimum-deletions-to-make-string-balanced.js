@@ -1,0 +1,1 @@
+var minimumDeletions = function(s) { let b=0,d=0; for(const c of s) { if(c==='b') b++; else d=Math.min(d+1,b); } return d; };
