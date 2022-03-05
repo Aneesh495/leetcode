@@ -1,0 +1,1 @@
+var minOperations = function(nums,x) { const target=nums.reduce((a,b)=>a+b,0)-x; if(target<0)return -1; let l=0,sum=0,best=target===0?0:-1; for(let r=0;r<nums.length;r++){sum+=nums[r]; while(sum>target)sum-=nums[l++]; if(sum===target)best=Math.max(best,r-l+1);} return best<0?-1:nums.length-best; };
