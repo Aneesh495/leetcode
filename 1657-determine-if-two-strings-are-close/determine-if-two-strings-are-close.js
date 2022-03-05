@@ -1,0 +1,1 @@
+var closeStrings = function(word1,word2) { let a=Array(26).fill(0),b=Array(26).fill(0); for(const c of word1)a[c.charCodeAt(0)-97]++; for(const c of word2)b[c.charCodeAt(0)-97]++; for(let i=0;i<26;i++)if(Boolean(a[i])!==Boolean(b[i]))return false; a.sort((x,y)=>x-y);b.sort((x,y)=>x-y);return a.every((x,i)=>x===b[i]); };
