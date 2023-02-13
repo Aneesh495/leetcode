@@ -1,0 +1,5 @@
+class Solution {
+ int[][] pos,chosen; String[] pieces; int n; int[][] dirs={{1,0},{-1,0},{0,1},{0,-1},{1,1},{1,-1},{-1,1},{-1,-1}};
+ public int countCombinations(String[] pieces,int[][] positions){this.pieces=pieces;pos=positions;n=pieces.length;chosen=new int[n][3];return dfs(0);}
+ int dfs(int i){if(i==n)return 1; int ans=0; for(int d=-1;d<8;d++){if(d>=0&&((pieces[i].equals("rook")&&d>=4)||(pieces[i].equals("bishop")&&d<4)))continue; int dx=d<0?0:dirs[d][0],dy=d<0?0:dirs[d][1]; int max=d<0?0:7;for(int step=0;step<=max;step++){if(d>=0&&step==0)continue; int x=pos[i][0]+dx*step,y=pos[i][1]+dy*step;if(x<1||x>8||y<1||y>8)break; boolean ok=true;for(int j=0;j<i&&ok;j++)for(int t=1;t<=7;t++){int a=Math.min(t,step), b=Math.min(t,chosen[j][2]);if(pos[i][0]+dx*a==pos[j][0]+chosen[j][0]*b&&pos[i][1]+dy*a==pos[j][1]+chosen[j][1]*b){ok=false;break;}} if(ok){chosen[i]=new int[]{dx,dy,step};ans+=dfs(i+1);}}}return ans;}
+}
