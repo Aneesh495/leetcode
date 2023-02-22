@@ -1,0 +1,3 @@
+class Solution {
+ public int[] maximumBeauty(int[][] items,int[] queries){java.util.Arrays.sort(items,(a,b)->Integer.compare(a[0],b[0]));int n=items.length;int[] best=new int[n+1],ans=new int[queries.length];for(int i=0;i<n;i++)best[i+1]=Math.max(best[i],items[i][1]);for(int i=0;i<queries.length;i++){int l=0,r=n;while(l<r){int m=(l+r)/2;if(items[m][0]<=queries[i])l=m+1;else r=m;}ans[i]=best[l];}return ans;}
+}
