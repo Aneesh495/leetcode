@@ -1,0 +1,3 @@
+class Solution {
+ public ListNode reverseEvenLengthGroups(ListNode head){ListNode dummy=new ListNode(0);dummy.next=head;ListNode prev=dummy;int len=1;while(prev.next!=null){ListNode end=prev;int count=0;while(count<len&&end.next!=null){end=end.next;count++;}ListNode after=end.next;if(count%2==0){ListNode cur=prev.next,tail=cur,rev=after;while(cur!=after){ListNode next=cur.next;cur.next=rev;rev=cur;cur=next;}prev.next=rev;prev=tail;}else prev=end;len++;}return dummy.next;}
+}
