@@ -1,41 +1,36 @@
-# Leetcode archive
+# LeetCode
 
-Personal record of accepted solutions synced from Leetcode. Each problem lives in
-its own directory with source, notes, and upstream problem README when present.
+Archive of **750+** accepted solutions synced from the platform. Each problem is a directory named `{id}-{slug}/` with source, optional notes, and upstream problem README when present.
 
-## Layout
+## Scale and shape
+
+| Property | Detail |
+| --- | --- |
+| Problems | 750+ folders on `main` |
+| Primary language | C++ (competitive-style solutions) |
+| Also | Python / Java in select folders |
+| Sync | Git pull from GitHub is source of truth; run `git pull origin main` before local edits |
 
 ```mermaid
 flowchart TD
-  Root[repository root] --> P1[problem-slug/]
-  P1 --> Src[source file]
-  P1 --> Notes[README.md per problem]
+  Root[repo root] --> D1["1823-find-the-winner-of-the-circular-game/"]
+  Root --> D2["..."]
+  D1 --> Src[*.cpp / *.py]
+  D1 --> Readme[README.md problem statement]
 ```
 
-Roughly 750+ problem folders under `main`, grouped by slug (for example
-`1-two-sum/`). Language mix is mostly C++ with occasional Python or Java where
-noted in the folder.
-
-## Workflow
-
-Solutions are updated through Leetcode sync tooling; pull before working locally
-so this clone matches GitHub:
-
-```bash
-git pull origin main
-```
-
-There is no build step for the archive as a whole. Open an individual solution
-file in your editor or compile it with the toolchain named in that problem's
-notes.
+There is **no monorepo build**. Compile per problem with the toolchain noted in that folder (g++, local script, or IDE).
 
 ## Conventions
 
-- One directory per problem, named with Leetcode id and slug
-- Prefer keeping upstream problem statements in the per-problem README
-- Commit messages from sync often include runtime and memory stats from submission
+- Directory name matches LeetCode slug for searchability
+- Commit messages from sync often include judged runtime and memory percentages
+- Keep upstream statements in per-problem READMEs; solution files stay minimal
+
+## Why this repo exists
+
+Dense record of algorithm practice: arrays, graphs, DP, heaps, strings, and system-style prompts. Useful as a searchable reference for patterns and complexity tradeoffs, not as a library.
 
 ## License
 
-Solutions are for personal reference. Problem statements remain Leetcode property
-where applicable.
+Solution code is personal reference. Problem statements belong to LeetCode where applicable.
