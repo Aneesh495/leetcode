@@ -1,37 +1,36 @@
-
 import random
 
 class RandomizedSet:
+
     def __init__(self):
-        # arr stores values so we can get a random element in O(1)
-        # pos maps value to its index in arr for O(1) insert and remove
-        self.arr = []
-        self.pos = {}
+        self.values: list[int] = []
+        self.index_by_value: dict[int, int] = {}
 
     def insert(self, val: int) -> bool:
-        # Return False if already present
-        if val in self.pos:
+        if val in self.index_by_value:
             return False
-        # Append to arr and record its index
-        self.pos[val] = len(self.arr)
-        self.arr.append(val)
+        self.index_by_value[val] = len(self.values)
+        self.values.append(val)
         return True
 
     def remove(self, val: int) -> bool:
-        # Return False if not present
-        if val not in self.pos:
+        if val not in self.index_by_value:
             return False
-        # Index of element to remove
-        idx = self.pos[val]
-        # Move last element into idx to keep array compact
-        last_val = self.arr[-1]
-        self.arr[idx] = last_val
-        self.pos[last_val] = idx
-        # Remove last element from arr and delete mapping
-        self.arr.pop()
-        del self.pos[val]
+        remove_index = self.index_by_value[val]
+        last_value = self.values[-1]
+        if remove_index != len(self.values) - 1:
+            self.values[remove_index] = last_value
+            self.index_by_value[last_value] = remove_index
+        self.values.pop()
+        del self.index_by_value[val]
         return True
 
     def getRandom(self) -> int:
-        # Each element has equal probability
-        return self.arr[random.randrange(len(self.arr))]
+        return random.choice(self.values)
+
+
+# Your RandomizedSet object will be instantiated and called as such:
+# obj = RandomizedSet()
+# param_1 = obj.insert(val)
+# param_2 = obj.remove(val)
+# param_3 = obj.getRandom()
