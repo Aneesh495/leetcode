@@ -1,6 +1,6 @@
 # LeetCode
 
-Archive of **750+** accepted solutions synced from the platform. Each problem is a directory named `{id}-{slug}/` with source, optional notes, and upstream problem README when present.
+Archive of **1000+** accepted solutions synced from the platform. Each problem is a directory named `{id}-{slug}/` with source, optional notes, and upstream problem README when present.
 
 ## Scale and shape
 
